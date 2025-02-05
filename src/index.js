@@ -11,7 +11,6 @@ config()
 const app = express()
 const PORT = process.env.PORT || 8001
 
-// Middleware để xử lý form-data
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json({ limit: '10mb' }))
 app.use(cors({

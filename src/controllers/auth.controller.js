@@ -71,3 +71,20 @@ export const loginWithEmail = async (req, res) => {
     }
 }
 
+export const getInfoUser = async (req, res) => {
+    const { userId } = req.params
+    try {
+        const user = await User.findById({ _id: userId });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.json({
+            email: user.email,
+            fullName: user.profile.fullName,
+            phoneNumber: user.profile.phoneNumber
+        })
+    } catch (error) {
+        console.log("Error in get info user controller", error.message)
+        res.status(500).json({ message: "Internal server error" });
+    }
+}

@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginWithEmail, registerWithEmail } from '../controllers/auth.controller.js';
+import { getInfoUser, loginWithEmail, registerWithEmail } from '../controllers/auth.controller.js';
 
 const route = express.Router()
 
@@ -8,5 +8,6 @@ route.get('/', (req, res) => {
 })
 route.post('/login', loginWithEmail)
 route.post('/register', registerWithEmail)
+route.get('/user/:userId', getInfoUser)
 
 export default route
