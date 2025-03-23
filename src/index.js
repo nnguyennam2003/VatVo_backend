@@ -3,6 +3,8 @@ import { config } from 'dotenv'
 import routeAuth from './routes/auth.route.js';
 import routeProduct from './routes/product.route.js';
 import routeCart from './routes/cart.route.js';
+import routeOrder from './routes/order.route.js';
+
 import { connectDB } from './lib/db.js';
 import cors from 'cors';
 
@@ -21,6 +23,7 @@ app.use(cors({
 app.use('/api/auth', routeAuth)
 app.use('/api/product', routeProduct)
 app.use('/api/cart', routeCart)
+app.use('/api/order', routeOrder)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`)
